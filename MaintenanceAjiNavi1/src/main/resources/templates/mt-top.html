@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>管理メニュー</title>
+<link rel="stylesheet" th:href="@{/css/mt-style.css}">
+</head>
+<body>
+
+	<h2>管理メニュー</h2>
+
+	<div>
+	    <form th:action="@{/mt-show-regist}" method="POST">
+    		<input type="submit" value="店舗登録" class="btn">
+ 	  	</form>
+	</div>
+
+</body>
+</html>
