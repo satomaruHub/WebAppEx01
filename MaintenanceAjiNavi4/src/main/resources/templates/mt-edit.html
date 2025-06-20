@@ -2,14 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>店舗登録</title>
+<title>店舗編集</title>
 <link rel="stylesheet" th:href="@{/css/mt-style.css}">
 </head>
 <body>
 
-	<h2>店舗登録</h2>
+	<h2>店舗編集</h2>
 
-    <form th:action="@{/mt-regist}" method="POST" th:object="${mtRegistForm}">
+    <form th:action="@{/mt-edit}" method="POST" th:object="${mtEditForm}">
+		【店舗ID】<br>
+		<p th:text="*{restaurantId}"></p>
+    	<input type="hidden" th:field="*{restaurantId}">
+    	<div th:if="${#fields.hasErrors('restaurantId')}" th:errors="*{restaurantId}" class="error-msg"></div>
+		<br>
     	【店舗名】<br>
     	<input type="text" th:field="*{restaurantName}"><br>
     	<div th:if="${#fields.hasErrors('restaurantName')}" th:errors="*{restaurantName}" class="error-msg"></div>
@@ -18,12 +23,11 @@
     	<input type="text" th:field="*{catchPhrase}" class="catch"><br>
     	<div th:if="${#fields.hasErrors('catchPhrase')}" th:errors="*{catchPhrase}" class="error-msg"></div>
 		<br>
-    	<input type="submit" value="登録" class="btn">
+    	<input type="submit" value="更新" class="btn">
     </form>
 
 	<br>
 	<a th:href="@{/mt-top}">管理メニューに戻る</a>
-
 
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>店舗検索・一覧</title>
+<link rel="stylesheet" th:href="@{/css/mt-style.css}">
+</head>
+<body>
+
+<h2>店舗検索</h2>
+
+<form th:action="@{/mt-search}" method="POST" th:object="${mtSearchForm}">
+	【店舗名】（部分一致）<br>
+   	<input type="text" th:field="*{restaurantName}"><br>
+	<br>
+   	<input type="submit" value="検索" class="btn">
+</form>
+
+<div th:if="${mtRestaurantList} != null">
+	<h2>店舗一覧</h2>
+
+	<table class="restaurant-list">
+		<tr>
+			<th>店舗ID</th><th>店舗名</th><th>キャッチフレーズ</th><th>レビュー数</th>
+		</tr>
+
+		<tr th:each="restaurant : ${mtRestaurantList}">
+			<td th:text="${restaurant.restaurantId}"></td>
+			<td th:text="${restaurant.restaurantName}"></td>
+			<td th:text="${restaurant.catchPhrase}"></td>
+			<td th:text="${restaurant.reviewCnt}"></td>
+		</tr>
+
+	</table>
+
+</div>
+
+<br>
+<a th:href="@{/mt-top}">管理メニューに戻る</a>
+
+</body>
+</html>

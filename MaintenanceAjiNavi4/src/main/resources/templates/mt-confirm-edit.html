@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>店舗編集確認</title>
+<link rel="stylesheet" th:href="@{/css/mt-style.css}">
+</head>
+<body>
+
+	<h2>店舗編集確認</h2>
+
+	<table class="confirm-table" th:object="${mtEditForm}">
+		<tr>
+			<td class="guide">【店舗ID】</td>
+			<td th:text="*{restaurantId}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【店舗名】</td>
+			<td th:text="*{restaurantName}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【キャッチフレーズ】</td>
+			<td th:text="*{catchPhrase}"></td>
+		</tr>
+	</table>
+	<br>
+
+    <form th:action="@{/mt-confirm-edit}" method="POST"
+			th:object="${mtEditForm}">
+    	<input type="hidden" th:field="*{restaurantId}">
+    	<input type="hidden" th:field="*{restaurantName}">
+    	<input type="hidden" th:field="*{catchPhrase}">
+    	<input type="submit" value="更新実行" class="btn">
+   	</form>
+
+    <form th:action="@{/mt-show-edit}" method="POST"
+			th:object="${mtEditForm}">
+    	<input type="hidden" th:field="*{restaurantId}">
+    	<input type="hidden" th:field="*{restaurantName}">
+    	<input type="hidden" th:field="*{catchPhrase}">
+    	<input type="submit" value="もどる" class="btn">
+   	</form>
+
+	<br>
+	<a th:href="@{/mt-top}">管理メニューに戻る</a>
+
+</body>
+</html>

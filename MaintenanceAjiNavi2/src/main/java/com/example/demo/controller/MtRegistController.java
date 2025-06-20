@@ -22,8 +22,6 @@ public class MtRegistController {
 	/*--- 登録画面表示リクエスト ---*/
 	@PostMapping("/mt-show-regist")
 	public String mtShowRtRegist(@ModelAttribute MtRegistForm form) {
-//	public String mtShowRtRegist() {
-		
 		return "mt-regist";
 	}
 
