@@ -10,9 +10,16 @@
 <body>
 	<h2> 登録完了 </h2>
 
-	<a th:href="@{/top}">
-		<button>TOPへ</button>
-	</a>
+	<!--	<a th:href="@{/top}">-->
+	<!--		<button>TOPへ</button>-->
+	<!--	</a>-->
+
+	<form th:action="@{/top}" method="POST" th:object="${studyRegistForm}">
+		<input type="hidden" name="studyContent" th:value="*{studyContent}">
+		<input type="hidden" name="examDate" th:value="*{examDate}">
+		<input type="hidden" name="studyTimeReq" th:value="*{studyTimeReq}">
+		<input type="submit" value="TOPへ" class="tbtn">
+	</form>
 
 </body>
 

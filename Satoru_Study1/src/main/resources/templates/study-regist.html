@@ -9,9 +9,27 @@
 
 <body>
 	
-	<a th:href="@{/study-confirm-req}">
-		<button>登録</button>
-	</a>
+	<form th:action="@{/study-confirm-req}" method="POST" 
+	    		th:object="${studyRegistForm}">
+			【学習内容】<br>
+			<input type="text" th:field="*{studyContent}"><br>
+	    	<div th:if="${#fields.hasErrors('studyContent')}" th:errors="*{studyContent}" class="error-msg"></div>
+			<br>
+	    	【受験日】<br>
+	    	<input type="date" th:field="*{examDate}"><br>
+	    	<div th:if="${#fields.hasErrors('examDate')}" th:errors="*{examDate}" class="error-msg"></div>
+			<br>
+	    	【必要学習時間】<br>
+			<input type="text" th:field="*{studyTimeReq}"><br>
+	    	<div th:if="${#fields.hasErrors('studyTimeReq')}" th:errors="*{studyTimeReq}" class="error-msg"></div>
+			<br>
+	    	
+	    	<input type="submit" value="登録" class="btn">
+	    </form>
+	
+<!--	<a th:href="@{/study-confirm-req}">-->
+<!--		<button>登録</button>-->
+<!--	</a>-->
 
 </body>
 

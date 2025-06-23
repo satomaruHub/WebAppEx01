@@ -10,9 +10,34 @@
 <body>
 	<h2> 登録内容 </h2>
 
-	<a th:href="@{/study-complete-req}">
-		<button>確認</button>
-	</a>
+	<table class="confirm-table" th:object="${studyRegistForm}">
+		<tr>
+			<td class="guide">【学習内容】</td>
+			<td th:text="*{studyContent}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【受験日】</td>
+			<td th:text="*{examDate}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【必要学習時間】</td>
+			<td th:text="*{studyTimeReq}"></td>
+		</tr>
+	</table>
+	
+	<p th:text="${msg}"></p>
+
+
+	<form th:action="@{/study-complete-req}" method="POST" th:object="${studyRegistForm}">
+		<input type="hidden" name="studyContent" th:value="*{studyContent}">
+		<input type="hidden" name="examDate" th:value="*{examDate}">
+		<input type="hidden" name="studyTimeReq" th:value="*{studyTimeReq}">
+		<input type="submit" value="確認" class="tbtn">
+	</form>
+
+<!--	<a th:href="@{/study-complete-req}">-->
+<!--		<button>確認</button>-->
+<!--	</a>-->
 
 </body>
 

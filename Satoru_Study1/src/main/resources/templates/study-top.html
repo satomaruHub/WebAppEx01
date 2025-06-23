@@ -13,6 +13,14 @@
 	<a th:href="@{/study-regist-req}">
 		<button>new</button>
 	</a>
+	
+	<div th:if="${studyRegistForm} != null">
+<!--		<h2 th:text="*{studyContent}"></h2>-->
+<h2 th:text="${studyRegistForm.studyContent}"></h2>
+
+		
+
+	</div>
 
 </body>
 
